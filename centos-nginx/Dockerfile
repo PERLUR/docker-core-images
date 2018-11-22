@@ -25,6 +25,7 @@ EXPOSE 443
 
 STOPSIGNAL SIGTERM
 
+VOLUME /var/www/default/html
 WORKDIR /var/www/default/html
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
