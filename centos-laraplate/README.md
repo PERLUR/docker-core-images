@@ -1,4 +1,4 @@
-# centos-Laraplate
+# centos-laraplate
 The PERLUR boilerplate for a Laravel and Vue.js applications based on [centos-nginx-php-fpm Docker image](https://hub.docker.com/r/perlur/centos-nginx-php-fpm) ([GitHub.com repository](https://github.com/PERLUR/docker-hub-images/tree/master/centos-nginx-php-fpm))
 
 ## What's included
