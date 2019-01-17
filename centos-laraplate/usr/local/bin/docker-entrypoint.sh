@@ -3,7 +3,8 @@ set -e
 LARAVEL_DIRECTORY=" /var/www/default/html"
 if [ -d $LARAVEL_DIRECTORY ]; then
     # the directory exists
-    if "$(ls -A $LARAVEL_DIRECTORY)"; then
+    if [ "$(ls -A $LARAVEL_DIRECTORY)" ]; then
+      echo "Directory not empty!"
       exec "$@"
     else
       composer create-project --prefer-dist laravel/laravel ./
