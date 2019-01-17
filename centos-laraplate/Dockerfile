@@ -29,6 +29,7 @@ RUN yum clean all && rm -rf /var/cache/yum
 
 RUN rm -f /etc/php-fpm.d/www.conf
 COPY etc/nginx/conf.d/* /etc/nginx/conf.d/ 
+COPY usr/local/bin/docker-entrypoint.sh /usr/local/bin/
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
