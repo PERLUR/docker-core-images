@@ -5,26 +5,28 @@ MAINTAINER "Mark Parker <mark.parker@perlur.cloud>"
 ENV SERVICE_NAME "laraplate"
 
 RUN yum update -y
-RUN yum install	-y	php72w-bzip \
-										php72w-calendar \
-										php72w-ctype \
-										php72w-curl \
-										php72w-exif \
-										php72w-fileinfo \
-										php72w-ftp \
-										php72w-gettext \
-										php72w-gmp \
-										php72w-iconv \
-										php72w-json \
-										php72w-mbstring \
-										php72w-phar \
-										php72w-shmop \
-										php72w-simplexml \
-										php72w-sockets \
-										php72w-tokenizer \
-										php72w-xml \
-										php72w-zip \
-										unzip
+RUN yum install	-y  php72w-bzip \
+                    php72w-calendar \
+		    php72w-ctype \
+		    php72w-curl \
+		    php72w-exif \
+		    php72w-fileinfo \
+		    php72w-ftp \
+		    php72w-gettext \
+		    php72w-gmp \
+		    php72w-iconv \
+		    php72w-json \
+		    php72w-mbstring \
+		    php72w-pdo \
+		    php72w-pgsql \
+		    php72w-phar \
+		    php72w-shmop \
+		    php72w-simplexml \
+		    php72w-sockets \
+		    php72w-tokenizer \
+		    php72w-xml \
+		    php72w-zip \
+		    unzip
 RUN yum clean all && rm -rf /var/cache/yum
 
 RUN rm -f /etc/php-fpm.d/www.conf
