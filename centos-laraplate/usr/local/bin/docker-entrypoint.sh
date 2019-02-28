@@ -6,7 +6,7 @@ if [ -d $LARAVEL_DIRECTORY ]; then
     if [ "$(ls -A $LARAVEL_DIRECTORY)" ]; then
       echo "Directory not empty!"
       echo "Attempting to install Composer dependencies!"
-      composer install --prefer-dist
+      composer install --no-interaction --prefer-dist --no-dev
     else
       composer create-project --prefer-dist laravel/laravel ./
     fi
