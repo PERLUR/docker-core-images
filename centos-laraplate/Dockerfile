@@ -35,7 +35,6 @@ COPY usr/local/bin/docker-entrypoint.sh /usr/local/bin/
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer self-update
 
 EXPOSE 80
 EXPOSE 443
