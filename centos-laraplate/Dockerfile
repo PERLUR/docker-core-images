@@ -5,8 +5,11 @@ MAINTAINER "Mark Parker <mark.parker@perlur.cloud>"
 ENV SERVICE_NAME "laraplate"
 
 RUN yum update -y
-RUN yum install	-y  php72w-bzip \
-                    php72w-calendar \
+RUN yum install	-y \
+            nodejs \
+            npm \
+            php72w-bzip \
+            php72w-calendar \
 		    php72w-ctype \
 		    php72w-curl \
 		    php72w-exif \
