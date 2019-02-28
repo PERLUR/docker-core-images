@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 set -e
-if [ $CI = true || $CI = "true" ]; then
-  ENVIRONMENT="testing"
-fi
 LARAVEL_DIRECTORY=" /var/www/default/html"
 if [ -d $LARAVEL_DIRECTORY ]; then
     # the directory exists
     if [ "$(ls -A $LARAVEL_DIRECTORY)" ]; then
       echo "Directory not empty!"
-      if [ $ENVIRONMENT == "testing" ]; then
-        echo "Running in testing environment, skipping installation of Composer dependencies!"
+      if [ "$CI" == "true" ]; then
+        echo "Running in a CI environment; skipping installation of Composer dependencies!"
         exec "$@"
       fi
       echo "Attempting to install Composer dependencies!"
