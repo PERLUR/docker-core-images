@@ -12,6 +12,8 @@ if [ -d $LARAVEL_DIRECTORY ]; then
       echo "Attempting to install Composer dependencies!"
       composer self-update
       composer install --no-interaction --prefer-dist --no-dev
+      npm install --production
+      npm run production
     else
       composer create-project --prefer-dist laravel/laravel ./
     fi
