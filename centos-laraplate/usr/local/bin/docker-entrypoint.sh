@@ -15,6 +15,8 @@ if [ -d $LARAVEL_DIRECTORY ]; then
       npm install --production
       npm run production
     else
+      echo "Removing .gitkeep and attempting to create Laravel project!"
+      rm ./.gitkeep
       composer create-project --prefer-dist laravel/laravel ./
     fi
 fi
