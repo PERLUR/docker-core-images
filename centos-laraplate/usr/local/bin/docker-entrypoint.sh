@@ -3,7 +3,7 @@ set -e
 LARAVEL_DIRECTORY=" /var/www/default/html"
 if [ -d $LARAVEL_DIRECTORY ]; then
     # the directory exists
-    if [ "$(ls -A $LARAVEL_DIRECTORY)" ]; then
+    if [ "$(ls -A $LARAVEL_DIRECTORY | grep -v .gitkeep)" ]; then
       echo "Directory not empty!"
       if [ "$CI" == "true" ]; then
         echo "Running in a CI environment; skipping installation of Composer dependencies!"
