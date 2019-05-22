@@ -6,14 +6,21 @@ if [ -d $LARAVEL_DIRECTORY ]; then
     if [ "$(ls -A $LARAVEL_DIRECTORY | grep -v .gitkeep)" ]; then
       echo "Directory not empty!"
       if [ "$CI" == "true" ]; then
-        echo "Running in a CI environment; skipping installation of Composer dependencies!"
+        echo "Running in a CI environment; skipping installation of Composer and NPM dependencies!"
         exec "$@"
       fi
-      echo "Attempting to install Composer dependencies!"
+      echo "Attempting to install Composer and NPM dependencies!"
       composer self-update
-      composer install --no-interaction --prefer-dist --no-dev
-      npm install --production
-      npm run production
+      if [ "$PRODUCTION" == "true" ]; then
+        echo "Deploying to production environment!"
+        composer install --no-interaction --prefer-dist --no-dev
+        npm install --production
+        npm run production
+        exec "$@"
+      fi
+      composer install --no-interaction --prefer-dist
+      npm install
+      npm run dev
     else
       echo "Removing .gitkeep and attempting to create Laravel project!"
       rm ./.gitkeep
