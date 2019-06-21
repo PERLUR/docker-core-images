@@ -12,12 +12,9 @@ RUN yum clean all && rm -rf /var/cache/yum
 
 COPY usr/local/bin/docker-entrypoint.sh /usr/local/bin/
 
-#RUN ln -sf /dev/stdout /var/log/nginx/access.log \
-#  && ln -sf /dev/stderr /var/log/nginx/error.log
-
 EXPOSE 8443
 
 STOPSIGNAL SIGTERM
 
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+#ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 CMD ["supernode", "-l", "8443", "-vv"]
