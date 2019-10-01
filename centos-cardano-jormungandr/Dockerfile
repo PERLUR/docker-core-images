@@ -1,6 +1,6 @@
 FROM perlur/centos-base AS builder
 
-ENV JORMUNGANDR_VERSION="v0.5.2"
+ENV JORMUNGANDR_VERSION="v0.5.4"
 
 RUN yum update -y
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
