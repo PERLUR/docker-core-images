@@ -10,4 +10,4 @@ fi
 
 # User specific aliases and functions
 
-PS1="$(tput bold)(${SERVICE_NAME})$(tput sgr0)[$(id -un)@$(hostname -s) $(pwd)]$ "
+PS1="$(tput bold)(${SERVICE_NAME})$(tput sgr0)[$(id -un)@$(hostname -s) \$(pwd)]$ "
