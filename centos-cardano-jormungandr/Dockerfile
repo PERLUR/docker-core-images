@@ -1,9 +1,13 @@
-FROM rust AS builder
+FROM perlur/centos-base AS builder
 
-ENV JORMUNGANDR_VERSION="v0.5.2"
+ENV JORMUNGANDR_VERSION="v0.5.4"
 
-RUN rustup install stable
-RUN rustup default stable
+RUN yum update -y
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
+    source $HOME/.cargo/env && \
+    rustup install stable && \
+    rustup default stable
+RUN yum install -y git gcc openssl-devel
 WORKDIR /usr/src
 RUN git clone --recurse-submodules https://github.com/input-output-hk/jormungandr
 WORKDIR jormungandr
