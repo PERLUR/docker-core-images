@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:8
 
 MAINTAINER "Mark Stopka <mark.stopka@perlur.cloud>"
 
