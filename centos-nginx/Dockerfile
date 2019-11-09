@@ -6,8 +6,8 @@ ENV SERVICE_NAME "nginx"
 
 RUN yum update -y
 RUN yum install -y supervisor \
-  nginx 
-RUN yum clean all && \
+    nginx && \ 
+    yum clean all && \
     dnf clean all && \ 
     rm -rf /var/cache/yum && \
     rm -rf /var/cache/dnf
@@ -30,7 +30,7 @@ EXPOSE 443
 STOPSIGNAL SIGTERM
 
 RUN chown nginx.nginx /var/www/default/html
-VOLUME /var/www/default/html
+
 WORKDIR /var/www/default/html
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 CMD ["/usr/bin/supervisord", "-n", "-u", "root", "-c", "/etc/supervisord.conf"]
