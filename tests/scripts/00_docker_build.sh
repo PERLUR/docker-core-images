@@ -6,11 +6,6 @@ IMAGE_NAME="centos-base"
 BASE_NAME=${DOCKER_PROJECT_PREFIX}-${IMAGE_NAME}
 docker build -t ${BASE_NAME} ./${IMAGE_NAME}
 
-IMAGE_NAME="centos-n2n"
-BASE_NAME=${DOCKER_PROJECT_PREFIX}-${IMAGE_NAME}
-docker build -t ${BASE_NAME} ./${IMAGE_NAME}
-
-
 IMAGE_NAME="centos-nginx"
 BASE_NAME=${DOCKER_PROJECT_PREFIX}-${IMAGE_NAME}
 docker build -t ${BASE_NAME} ./${IMAGE_NAME}
@@ -18,24 +13,3 @@ docker build -t ${BASE_NAME} ./${IMAGE_NAME}
 IMAGE_NAME="centos-nginx-php-fpm"
 BASE_NAME=${DOCKER_PROJECT_PREFIX}-${IMAGE_NAME}
 docker build -t ${BASE_NAME} ./${IMAGE_NAME}
-
-IMAGE_NAME="centos-nginx-php-fpm"
-BASE_NAME=${DOCKER_PROJECT_PREFIX}-${IMAGE_NAME}
-docker build -t ${BASE_NAME} ./${IMAGE_NAME}
-
-IMAGE_NAME="centos-laraplate"
-BASE_NAME=${DOCKER_PROJECT_PREFIX}-${IMAGE_NAME}
-docker build -t ${BASE_NAME} ./${IMAGE_NAME}
-
-IMAGE_NAME="centos-otrs"
-BASE_NAME=${DOCKER_PROJECT_PREFIX}-${IMAGE_NAME}
-docker build -t ${BASE_NAME} ./${IMAGE_NAME}
-
-IMAGE_NAME="centos-cardano-jormungandr"
-BASE_NAME=${DOCKER_PROJECT_PREFIX}-${IMAGE_NAME}
-docker build -t ${BASE_NAME} ./${IMAGE_NAME}
-
-IMAGE_NAME="debian-odoo"
-BASE_NAME=${DOCKER_PROJECT_PREFIX}-${IMAGE_NAME}
-DOCKER_IMAGE_TAG="12.0"
-docker build -t ${BASE_NAME}:${DOCKER_IMAGE_TAG} ./${IMAGE_NAME}/${DOCKER_IMAGE_TAG}
