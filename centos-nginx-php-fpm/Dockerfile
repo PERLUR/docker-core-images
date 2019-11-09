@@ -9,7 +9,7 @@ RUN yum install -y php-common \
   php-cli \
   php-fpm
 RUN yum clean all && \
-    dnf clean packages && \
+    dnf clean all && \
     rm -rf /var/cache/yum && \
     rm -rf /var/cache/dnf
 

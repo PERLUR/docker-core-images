@@ -8,7 +8,7 @@ RUN yum update -y
 RUN yum install -y supervisor \
   nginx 
 RUN yum clean all && \
-    dnf clean packages && \ 
+    dnf clean all && \ 
     rm -rf /var/cache/yum && \
     rm -rf /var/cache/dnf
 
