@@ -17,7 +17,8 @@ COPY etc/supervisord.d/* /etc/supervisord.d/
 COPY usr/local/bin/docker-entrypoint.sh /usr/local/bin/
 
 COPY etc/php-fpm.d/nginx.conf /etc/php-fpm.d/nginx.conf
-RUN rm -f /etc/php-fpm.d/www.conf
+RUN mkdir /var/run/php-fpm/ && \
+    rm -f /etc/php-fpm.d/www.conf
 
 COPY etc/nginx/conf.d/* /etc/nginx/conf.d/
 
