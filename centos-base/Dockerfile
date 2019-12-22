@@ -5,7 +5,7 @@ MAINTAINER "Mark Stopka <mark.stopka@perlur.cloud>"
 ENV SERVICE_NAME "base"
 
 COPY etc/skel/.bashrc /etc/skel/.bashrc
-COPY root/.bashrc /root/.bashrc
+COPY etc/skel/.bashrc /root/.bashrc
 
 RUN yum install -y yum-utils ncurses
 RUN yum-config-manager --enable cr

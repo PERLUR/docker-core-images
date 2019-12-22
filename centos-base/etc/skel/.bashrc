@@ -11,3 +11,7 @@ fi
 # User specific aliases and functions
 
 PS1="$(tput bold)(${SERVICE_NAME})$(tput sgr0)[$(id -un)@$(hostname -s) \$(pwd)]$ "
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ll="ls -l"
