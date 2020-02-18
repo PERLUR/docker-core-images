@@ -34,13 +34,6 @@ elif [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 		exit 1
 	fi
 
-	wp cli --allow-root update --nightly --yes
-
-	# Download WordPress.
-	wp core --allow-root download \
-		--version=${WP_VERSION} \
-		--force --debug
-
 	# Generate the wp-config file for debugging.
 	wp core --allow-root config \
 		--dbhost="$WP_DB_HOST" \
