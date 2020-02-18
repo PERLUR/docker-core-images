@@ -4,18 +4,21 @@ MAINTAINER "Mark Stopka <mark.stopka@perlur.cloud>"
 
 ENV SERVICE_NAME "nginx-php-fpm"
 
-RUN yum install -y https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 RUN yum update -y
-RUN yum install -y php72w-common \
-  php72w-cli \
-  php72w-fpm
-RUN yum clean all && rm -rf /var/cache/yum
+RUN yum install -y php-common \
+  php-cli \
+  php-fpm
+RUN yum clean all && \
+    dnf clean all && \
+    rm -rf /var/cache/yum && \
+    rm -rf /var/cache/dnf
 
 COPY etc/supervisord.d/* /etc/supervisord.d/
 COPY usr/local/bin/docker-entrypoint.sh /usr/local/bin/
 
 COPY etc/php-fpm.d/nginx.conf /etc/php-fpm.d/nginx.conf
-RUN rm -f /etc/php-fpm.d/www.conf
+RUN mkdir /var/run/php-fpm/ && \
+    rm -f /etc/php-fpm.d/www.conf
 
 COPY etc/nginx/conf.d/* /etc/nginx/conf.d/
 
