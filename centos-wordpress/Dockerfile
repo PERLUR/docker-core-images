@@ -11,6 +11,14 @@ RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh
   && chmod +x /usr/local/bin/wp \
   && wp --info --allow-root
 
+WORKDIR /var/www/default/html
+RUN wp cli --allow-root update --nightly --yes
+RUN wp core --allow-root download \
+    --skip-plugins \
+    --skip-themes \
+    --force \
+    --debug
+
 COPY usr/local/bin/docker-entrypoint.sh /usr/local/bin/
 
 EXPOSE 80
