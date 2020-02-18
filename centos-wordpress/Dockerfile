@@ -4,7 +4,7 @@ MAINTAINER "Mark Stopka <mark.stopka@perlur.cloud>"
 
 ENV SERVICE_NAME "wordpress"
 
-RUN yum update -y && yum install -y less
+RUN yum update -y && yum install -y php-json
 RUN yum clean all && rm -rf /var/cache/yum
 
 RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
