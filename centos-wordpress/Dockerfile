@@ -14,6 +14,7 @@ RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh
 WORKDIR /var/www/default/html
 RUN wp cli --allow-root update --nightly --yes
 RUN wp core --allow-root download \
+    --skip-content \
     --skip-plugins \
     --skip-themes \
     --force \
