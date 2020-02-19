@@ -4,7 +4,8 @@ MAINTAINER "Mark Stopka <mark.stopka@perlur.cloud>"
 
 ENV SERVICE_NAME "wordpress"
 
-RUN yum update -y && yum install -y php-json
+RUN yum update -y && yum install -y php-json \
+  php-pecl-zip
 RUN yum clean all && rm -rf /var/cache/yum
 
 RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
@@ -14,6 +15,7 @@ RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh
 WORKDIR /var/www/default/html
 RUN wp cli --allow-root update --nightly --yes
 RUN wp core --allow-root download \
+    --skip-content \
     --skip-plugins \
     --skip-themes \
     --force \
