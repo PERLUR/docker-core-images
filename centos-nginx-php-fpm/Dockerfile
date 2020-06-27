@@ -27,6 +27,8 @@ EXPOSE 443
 
 STOPSIGNAL SIGTERM
 
+RUN chown -R nginx:nginx /var/lib/php/session/
+
 WORKDIR /var/www/default/html
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
