@@ -1,6 +1,6 @@
 FROM perlur/centos-nginx
 
-MAINTAINER "Mark Stopka <mark.stopka@perlur.cloud>"
+LABEL maintainer="Mark Stopka <mark.stopka@perlur.cloud>"
 
 ENV SERVICE_NAME "nginx-php-fpm"
 
