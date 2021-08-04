@@ -1,10 +1,13 @@
-name: Build & Publish Docker image
+name: Build & Publish Docker images
 
 on: [push, pull_request]
-  paths:
-    - 'centos-base'
-    - 'centos-nginx'
-    - 'centos-nginx-php-fpm'
+
+strategy:
+  matrix:
+    images:
+      - 'centos-base'
+      - 'centos-nginx'
+      - 'centos-nginx-php-fpm'
 
 jobs:
   docker-build:
