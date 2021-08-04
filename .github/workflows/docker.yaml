@@ -2,14 +2,14 @@ name: Build & Publish Docker images
 
 on: [push, pull_request]
 
-strategy:
-  matrix:
-    images:
-      - 'centos-base'
-      - 'centos-nginx'
-      - 'centos-nginx-php-fpm'
-
 jobs:
+  strategy:
+    matrix:
+      images:
+        - 'centos-base'
+        - 'centos-nginx'
+        - 'centos-nginx-php-fpm'
+
   docker-build:
     name: Build & Test Docker image
     runs-on: ubuntu-latest    
