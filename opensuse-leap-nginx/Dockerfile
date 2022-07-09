@@ -1,11 +1,11 @@
-FROM perlur/centos-base
+FROM ghcr.io/perlur/opensuse-leap-base
 
 ARG BUILD_DATE
 ENV SERVICE_NAME "nginx"
 
 LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.name="PERLUR CentOS NGINX Image" \
+      org.label-schema.name="PERLUR openSUSE Leap NGINX Image" \
       org.label-schema.license="AGPL-3.0-or-later" \
       org.label-schema.vendor="PERLUR Group"
 LABEL org.opencontainers.image.created=$BUILD_DATE \
@@ -14,13 +14,10 @@ LABEL org.opencontainers.image.created=$BUILD_DATE \
 
 LABEL maintainer="Mark Stopka <mark.stopka@perlur.cloud>"
 
-RUN yum update -y
-RUN yum install -y supervisor \
-    nginx && \ 
-    yum clean all && \
-    dnf clean all && \ 
-    rm -rf /var/cache/yum && \
-    rm -rf /var/cache/dnf
+RUN zypper update -y
+RUN zypper install -y supervisor \
+    nginx
+RUN rm -rf /var/cache/zypp
 
 COPY etc/supervisord.d/* /etc/supervisord.d/
 COPY usr/local/bin/docker-entrypoint.sh /usr/local/bin/

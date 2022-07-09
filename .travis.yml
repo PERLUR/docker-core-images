@@ -1,8 +1,0 @@
-language:
-  - bash
-
-services:
-  - docker
-
-script:
-  - ./tests/scripts/00_docker_build.sh
