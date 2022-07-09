@@ -15,6 +15,12 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
         with: 
-          platforms: amd64, arm64, riscv64
+          platforms: arm64, riscv64
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: ./centos-base/
+          push: true
+          tags: perlur/centos-base:latest
