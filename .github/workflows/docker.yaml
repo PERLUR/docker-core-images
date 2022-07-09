@@ -12,9 +12,6 @@ jobs:
         id: docker_image_tag
         if: success()
         run: echo ::set-output name=TAG::$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
-      - name: Build :latest Docker images
-        if: success()
-        run: tests/scripts/00_docker_build.sh
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
         platforms: arm64,riscv64
