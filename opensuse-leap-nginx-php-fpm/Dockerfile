@@ -1,4 +1,4 @@
-FROM perlur/opensuse-leap-nginx
+FROM ghcr.io/perlur/opensuse-leap-nginx
 
 ARG BUILD_DATE
 ENV SERVICE_NAME "nginx-php-fpm"
