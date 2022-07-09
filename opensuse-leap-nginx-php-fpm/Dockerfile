@@ -14,14 +14,11 @@ LABEL org.opencontainers.image.created=$BUILD_DATE \
 
 LABEL maintainer="Mark Stopka <mark.stopka@perlur.cloud>"
 
-RUN yum update -y
-RUN yum install -y php-common \
+RUN zypper update -y
+RUN zypper install -y php-common \
   php-cli \
   php-fpm
-RUN yum clean all && \
-    dnf clean all && \
-    rm -rf /var/cache/yum && \
-    rm -rf /var/cache/dnf
+RUN  rm -rf /var/cache/zypp
 
 COPY etc/supervisord.d/* /etc/supervisord.d/
 COPY usr/local/bin/docker-entrypoint.sh /usr/local/bin/
