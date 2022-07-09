@@ -1,4 +1,4 @@
-FROM perlur/opensuse-leap-base
+FROM ghcr.io/perlur/opensuse-leap-base
 
 ARG BUILD_DATE
 ENV SERVICE_NAME "nginx"
