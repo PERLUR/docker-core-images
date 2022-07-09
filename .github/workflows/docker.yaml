@@ -21,6 +21,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./centos-base/
+          context: ./opensuse-leap-base/
           push: true
-          tags: perlur/centos-base:latest
+          tags: perlur/opensuse-leap-base:latest
