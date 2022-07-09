@@ -15,9 +15,8 @@ LABEL org.opencontainers.image.created=$BUILD_DATE \
 LABEL maintainer="Mark Stopka <mark.stopka@perlur.cloud>"
 
 RUN zypper update -y
-RUN zypper install -y php-common \
-  php-cli \
-  php-fpm
+RUN zypper install -y php8-cli \
+  php8-fpm
 RUN  rm -rf /var/cache/zypp
 
 COPY etc/supervisord.d/* /etc/supervisord.d/
