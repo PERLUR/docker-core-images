@@ -15,3 +15,6 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias ll="ls -l"
+
+# User specific environment variables
+export LC_ALL=C.UTF-8
