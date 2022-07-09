@@ -30,4 +30,4 @@ jobs:
         with:
           context: ./opensuse-leap-base/
           push: true
-          tags: perlur/opensuse-leap-base:latest
+          tags: ghcr.io/perlur/opensuse-leap-base:latest
