@@ -1,11 +1,11 @@
-FROM perlur/centos-nginx
+FROM ghcr.io/perlur/opensuse-leap-nginx
 
 ARG BUILD_DATE
 ENV SERVICE_NAME "nginx-php-fpm"
 
 LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.name="PERLUR CentOS NGINX PHP-FPM Image" \
+      org.label-schema.name="PERLUR openSUSE Leap NGINX PHP-FPM Image" \
       org.label-schema.license="AGPL-3.0-or-later" \
       org.label-schema.vendor="PERLUR Group"
 LABEL org.opencontainers.image.created=$BUILD_DATE \
@@ -14,14 +14,10 @@ LABEL org.opencontainers.image.created=$BUILD_DATE \
 
 LABEL maintainer="Mark Stopka <mark.stopka@perlur.cloud>"
 
-RUN yum update -y
-RUN yum install -y php-common \
-  php-cli \
-  php-fpm
-RUN yum clean all && \
-    dnf clean all && \
-    rm -rf /var/cache/yum && \
-    rm -rf /var/cache/dnf
+RUN zypper update -y
+RUN zypper install -y php8-cli \
+  php8-fpm
+RUN  rm -rf /var/cache/zypp
 
 COPY etc/supervisord.d/* /etc/supervisord.d/
 COPY usr/local/bin/docker-entrypoint.sh /usr/local/bin/
