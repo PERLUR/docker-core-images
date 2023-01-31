@@ -25,19 +25,19 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push base service
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: ./opensuse-leap-base/
           push: true
           tags: ghcr.io/perlur/opensuse-leap-base:latest
       - name: Build and push nginx service
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: ./opensuse-leap-nginx/
           push: true
           tags: ghcr.io/perlur/opensuse-leap-nginx:latest
       - name: Build and push nginx and PHP FPM service
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: ./opensuse-leap-nginx-php-fpm/
           push: true
